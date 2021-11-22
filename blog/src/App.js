@@ -1,10 +1,18 @@
-import './App.css';
+import {Container, Typography} from '@mui/material';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 function App() {
   return (
-    <div className="App">
-      <h1>my blog</h1>
-    </div>
+    <Container>
+      <Typography
+        variant="h1"
+        align="center"
+        color="primary"
+      >
+        
+        My Blog</Typography>
+        <AddCircleIcon/>
+    </Container>
   );
 }
 
