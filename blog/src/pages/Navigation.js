@@ -24,7 +24,7 @@ export default function Navigation({modeIcon,setMode}){
     <Box sx={{flexGrow:1}}>
       <AppBar
           position="static"
-          color="primary"
+          style={{backgroundColor: '#2962ff'}}
         >
         <Toolbar>
            <IconButton

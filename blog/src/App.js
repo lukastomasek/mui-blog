@@ -1,5 +1,6 @@
 
-import { createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import { purple, red } from '@mui/material/colors';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -12,7 +13,7 @@ const light = {
   palette:{
     mode: 'light',
     primary:{
-      main: '#fefefe'
+      main: '#2962ff'
     },
     secondary: purple
   },
@@ -22,7 +23,8 @@ const light = {
     fontWeightRegular: 500,
     fontWeightMedium: 600,
     fontWeightBold:700,
-  }
+  },
+ 
 }
 
 const dark = {
@@ -30,6 +32,7 @@ const dark = {
       mode: 'dark',
       primary:{
       main: '#fefefe'
+    
     },
     secondary: purple
   },
@@ -39,18 +42,9 @@ const dark = {
     fontWeightRegular: 500,
     fontWeightMedium: 600,
     fontWeightBold:700,
-  }
-}
-
-const darkTheme = createTheme({
-  palette:{
-    mode: "dark",
-    primary: red,
   },
-  secondary:{
-    main: purple
-  }
-});
+
+}
 
 function App() {
 
