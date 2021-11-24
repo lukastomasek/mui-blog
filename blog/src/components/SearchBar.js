@@ -48,18 +48,12 @@ const StyledInput = styled(InputBase)(({theme})=>({
 
 export default  function SearchBar(){
 
-
-
  return(
-  <Search>
-    
-  <SearchIconWrapper>
-    <SearchIcon/>
-  </SearchIconWrapper>
-
-  <StyledInput placeholder="search"
-
-  />
-  </Search>
+    <Search>  
+      <SearchIconWrapper>
+        <SearchIcon/>
+      </SearchIconWrapper>
+      <StyledInput placeholder="search" />
+    </Search>
  );
 }

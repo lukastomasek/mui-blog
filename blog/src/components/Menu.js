@@ -4,14 +4,24 @@ import HomeIcon from '@mui/icons-material/Home';
 import CreateIcon from '@mui/icons-material/Create';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import{makeStyles, styled} from '@mui/styles';
+import {useHistory} from 'react-router';
 
 import { useState } from "react";
 
 const styles = makeStyles({
   backIcon:{
-      display:'flex',
-      justifyContent: 'end'
-  }
+    display:'flex',
+    justifyContent: 'end'
+  },
+  icon:{
+    cursor: 'pointer',
+    '&:hover':{
+       backgroundColor: '#f1f1f1',
+    }
+  },
+  active:{
+    backgroundColor: '#f1f1f1',
+  },
 })
 
 export default function Menu({open, setOpen}){
@@ -23,15 +33,15 @@ export default function Menu({open, setOpen}){
     {
       title: "Home",
       icon: <HomeIcon/>,
+      path: "/"
     },
     {
       title: "Create Blog",
       icon: <CreateIcon/>,
+      path: "/create"
     },
   ]
-
-
-
+    const history = useHistory();
   return(
     <Drawer
       variant="persistent"
@@ -48,13 +58,13 @@ export default function Menu({open, setOpen}){
       <Divider/>
      <List>
         {menuItems.map(item=>(
-          <ListItem key={item.title}>
-            <IconButton>
+          <ListItem className={classes.icon} key={item.title}
+            onClick={()=> history.push(item.path)}
+          >
               <ListItemIcon>
                {item.icon}
               </ListItemIcon>
-              <ListItemText primary={item.title} />
-            </IconButton>
+              <ListItemText primary={item.title} />     
           </ListItem>
         ))}
      </List>
