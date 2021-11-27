@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router,Switch, Route,} from 'react-router-dom';
 import Create from './pages/Create';
 import Layout from './pages/Layout';
+import Home from './pages/Home';
 
 const light = {
   palette:{
@@ -66,11 +67,12 @@ function App() {
          <Layout icon={icon} handleClick={handleClick}>
           <Switch>
             <Route exact path="/">
-              {/* home */}
+              <Home/>
             </Route>
             <Route path="/create">
                <Create/>
             </Route>
+            
           </Switch>
          </Layout>
         </Router>

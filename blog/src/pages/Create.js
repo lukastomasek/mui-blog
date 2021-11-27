@@ -1,10 +1,13 @@
 import React,{useState} from "react";
-import { Container, Typography, TextField, Button, FormLabel, RadioGroup, Radio, FormControl, FormControlLabel  } from "@mui/material";
+import { Container, Typography, TextField,
+   Button, FormLabel, RadioGroup, Radio, FormControl, FormControlLabel  } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
-
+import {useHistory} from 'react-router-dom';
 
 
 export default function Create(){
+
+  const history = useHistory();
 
   const [title,setTitle] = useState('');
   const [blogDetails, setBlogDetails] = useState('');
@@ -28,7 +31,19 @@ export default function Create(){
 
     if(title && blogDetails){
       // make a post reqest
-      console.log(`title: ${title}, blog: ${blogDetails}, category: ${category}`);
+
+      fetch('http://localhost:8000/blogs', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({title,blogDetails,category}),
+      })
+      .then(data=>{
+        console.log('Success:',data);
+        history.push("/");
+      })
+      .catch(err=> console.log('error:',err));
+
+      // console.log(`title: ${title}, blog: ${blogDetails}, category: ${category}`);
     }
 
   };
@@ -71,10 +86,9 @@ export default function Create(){
 
        <Button
           type="submit"
-          variant="contained"
-          color="secondary"
+          variant="contained"  
           endIcon={<SendIcon/>}
-        
+          style={{backgroundColor: '#2962ff', color: '#fefefe'}} 
           >
           Submit
         </Button>

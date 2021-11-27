@@ -1,12 +1,11 @@
-import { Drawer, List, IconButton, Typography, ListItem,
+import { Drawer, List, IconButton, ListItem,
 ListItemIcon, ListItemText, Divider, Container } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import CreateIcon from '@mui/icons-material/Create';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import{makeStyles, styled} from '@mui/styles';
+import{makeStyles} from '@mui/styles';
 import {useHistory} from 'react-router';
 
-import { useState } from "react";
 
 const styles = makeStyles({
   backIcon:{
