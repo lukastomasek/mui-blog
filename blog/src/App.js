@@ -1,7 +1,7 @@
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { purple, red } from '@mui/material/colors';
+import { purple } from '@mui/material/colors';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useState } from 'react';
@@ -9,6 +9,9 @@ import { BrowserRouter as Router,Switch, Route,} from 'react-router-dom';
 import Create from './pages/Create';
 import Layout from './pages/Layout';
 import Home from './pages/Home';
+
+
+const LOCAL_KEY = "save_theme";
 
 const light = {
   palette:{
@@ -49,8 +52,16 @@ const dark = {
 
 function App() {
 
+  const data = localStorage.getItem(LOCAL_KEY);
 
-  const [theme, setTheme] = useState(true);
+  let isTheme;
+
+  if(data){
+    isTheme = JSON.parse(data);
+  }
+
+
+  const [theme, setTheme] = useState(!isTheme);
 
   const icon = !theme ? <Brightness7Icon/> : <DarkModeIcon/>;
 
@@ -58,6 +69,7 @@ function App() {
 
   const handleClick = () =>{
     setTheme(!theme)
+    localStorage.setItem(LOCAL_KEY, JSON.stringify(theme));
   };
 
   return (

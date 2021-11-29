@@ -58,7 +58,10 @@ export default function Menu({open, setOpen}){
      <List>
         {menuItems.map(item=>(
           <ListItem className={classes.icon} key={item.title}
-            onClick={()=> history.push(item.path)}
+            onClick={()=> {
+              history.push(item.path);
+              setOpen(false);
+            }}
           >
               <ListItemIcon>
                {item.icon}

@@ -1,9 +1,21 @@
 {
   "blogs": [
     {
-      "title": "fcbdfg",
-      "blogDetails": "vbcvb",
+      "title": "How to open a business",
+      "blogDetails": "here are details on how to open a business",
+      "category": "Business",
+      "id": 1
+    },
+    {
+      "title": "How to create a compelling art",
+      "blogDetails": "creating compelling art...",
       "category": "Art",
+      "id": 2
+    },
+    {
+      "title": "How to grow on facebook",
+      "blogDetails": "simple steps to grow on facebook",
+      "category": "Social Media",
       "id": 3
     }
   ]
